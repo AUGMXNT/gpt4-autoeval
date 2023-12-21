@@ -7,10 +7,7 @@ from tenacity import retry, stop_after_attempt, wait_random_exponential
 with open("./assets/prompt_eval.txt") as f:
     template_prompt = f.read()
 
-with open("/run/secrets/OPENAI_API_KEY") as f:
-    OPENAI_API_KEY = f.read()
-
-client = OpenAI(api_key=OPENAI_API_KEY)
+client = OpenAI()
 
 
 def evaluate(pred, input_text, output_text, eval_aspect):
